@@ -1,0 +1,145 @@
+HTML Attributes
+All HTML elements can have attributes
+Attributes provide additional information about elements
+Attributes are always specified in the start tag
+Attributes usually come in name/value pairs like: name="value"
+
+The href Attribute
+The <a> tag defines a hyperlink. The href attribute specifies the URL of the page the link goes to:
+
+Example
+<a href="https://www.w3schools.com">Visit W3Schools</a>
+
+The src Attribute
+The <img> tag is used to embed an image in an HTML page. The src attribute specifies the path to the image to be displayed:
+
+Example
+<img src="img_girl.jpg">
+
+There are two ways to specify the URL in the src attribute:
+
+1. Absolute URL - Links to an external image that is hosted on another website. Example: src="https://www.w3schools.com/images/img_girl.jpg".
+2. Relative URL - Links to an image that is hosted within the website. Here, the URL does not include the domain name. If the URL begins without a slash, it will be relative to the current page. Example: src="img_girl.jpg". 
+If the URL begins with a slash, it will be relative to the domain. Example: src="/images/img_girl.jpg".
+
+The width and height Attributes
+The <img> tag should also contain the width and height attributes, which specify the width and height of the image (in pixels):
+
+Example
+<img src="img_girl.jpg" width="500" height="600">
+
+The alt Attribute
+The required alt attribute for the <img> tag specifies an alternate text for an image, if the image for some reason cannot be displayed.
+
+Example
+<img src="img_girl.jpg" alt="Girl with a jacket">
+
+The style Attribute
+The style attribute is used to add styles to an element, such as color, font, size, and more.
+
+Example
+<p style="color:red;">This is a red paragraph.</p>
+
+The lang Attribute
+ to declare the language of the Web page. This is meant to assist search engines and browsers.
+Example
+<html lang="en">
+
+Single or Double Quotes?
+Double quotes around attribute values are the most common in HTML, but single quotes can also be used.
+
+In some situations, when the attribute value itself contains double quotes, it is necessary to use single quotes:
+
+<p title='John "ShotGun" Nelson'>
+Or vice versa:
+
+<p title="John 'ShotGun' Nelson">
+
+HTML Headings
+HTML headings are defined with the <h1> to <h6> tags.
+
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+<h5>Heading 5</h5>
+<h6>Heading 6</h6>
+
+HTML Horizontal Rules
+The <hr> tag defines a thematic break in an HTML page, and is most often displayed as a horizontal rule.
+
+The <hr> element is used to separate content (or define a change) in an HTML page:
+
+Example
+<h1>This is heading 1</h1>
+<p>This is some text.</p>
+<hr>
+<h2>This is heading 2</h2>
+<p>This is some other text.</p>
+<hr>
+
+This is heading 1
+This is some text.
+
+--------------------------
+
+This is heading 2
+This is some other text.
+
+--------------------------
+
+This is heading 2
+This is some other text.
+
+
+HTML Line Breaks
+The HTML <br> element defines a line break.
+
+Use <br> if you want a line break (a new line) without starting a new paragraph:
+
+Example
+<p>This is<br>a paragraph<br>with line breaks.</p>
+
+o/p :
+This is
+a paragraph
+with line breaks.
+
+
+<p>
+  My Bonnie lies over the ocean.
+
+  My Bonnie lies over the sea.
+
+  My Bonnie lies over the ocean.
+
+  Oh, bring back my Bonnie to me.
+</p>
+
+o/p :
+My Bonnie lies over the ocean. My Bonnie lies over the sea. My Bonnie lies over the ocean. Oh, bring back my Bonnie to me.
+
+Solution - The HTML <pre> Element
+The HTML <pre> element defines preformatted text.
+
+The text inside a <pre> element is displayed in a fixed-width font (usually Courier), and it preserves both spaces and line breaks:
+
+<pre>
+  My Bonnie lies over the ocean.
+
+  My Bonnie lies over the sea.
+
+  My Bonnie lies over the ocean.
+
+  Oh, bring back my Bonnie to me.
+</pre>
+
+
+o/p :
+   My Bonnie lies over the ocean.
+
+   My Bonnie lies over the sea.
+
+   My Bonnie lies over the ocean.
+   
+   Oh, bring back my Bonnie to me.

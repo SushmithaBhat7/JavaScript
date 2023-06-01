@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<!-- HTML head Code start-->
+<head>
+  <!-- CSS Code -->
+  <style>
+    /* Border of Input made Red on entering Invalid Password */
+    .invalid-password {
+      border: 1px solid red;
+    }
+    /* Lable for Input shown in Bold */
+    .bold {
+      font-weight: bold;
+    }
+    /* Button color,Text color,edge manymore styles of button updated */
+    .button {
+      background-color: #537af1; /* Button Color Made Blue */
+      border: none;
+      color: white; /* Button Text Color Made White */
+      padding: 15px 32px; /* Button text top space 15px bottom space made 32px WRT Button*/
+      text-align: center; /* Button text aligned center of Button */
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px; /* Button margin thickness set */
+      cursor: pointer; /* Cursor hovers on button changes to a symbol */
+      border-radius: 12px; /* Button edge Made rounded */
+    }
+
+    /* To make Input Feild edges rounded */
+    .rounded {
+      padding: 12px 20px;
+      margin: 8px 0;
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+      outline: none;
+      border: 1px solid #aaa7a7;
+      border-radius: 12px;
+    }
+
+    /* To make Material Icon and text in one line */
+    .inline-icon {
+      vertical-align: bottom;
+      font-size: 18px !important;
+    }
+  </style>
+
+  <!-- GoogleAPI link for Material Icons Check-Circle and Cancel -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head> <!-- HTML head Code end -->
+
+<body> <!-- HTML body Code Start -->
+
+  <h2>Choose new password</h2> <!-- Title -->
+
+  <p>Amost done. Enter your new password and youre all set.</p> <!-- Paragraph for block of text -->
+
+
+  <div id="password-form">
+    <label class="bold" for="new-password">Create a Password </label>
+    <br>
+    <input class="rounded" type="password" id="new-password" name="new-password" required> <!-- Creating an ID new-password -->
+    <br>
+    <br>
+    <label class="bold" for="confirm-password">Confirm new Password </label>
+    <br>
+    <input class="rounded" type="password" id="confirm-password" name="confirm-password" required>
+    <br>
+    <div id="lowercase">
+      <p>one lowercase charecter<i class="inline-icon material-icons"></i></p>
+    </div>
+    <div id="uppercase">
+      <p>one uppercase charecter<i class="inline-icon material-icons"></i></p>
+    </div>
+    <div id="special">
+      <p>one special charecter<i class="inline-icon material-icons"></i></p>
+    </div>
+    <div id="numeric">
+      <p>one numeric charecter<i class="inline-icon material-icons"></i></p>
+    </div>
+    <div id="length">
+      <p>8 charecter minimum<i class="inline-icon material-icons"></i></p>
+    </div>
+    <br>
+    <button class="button" type="button" onclick="validatePassword()">Reset password</button>
+    <div id="password-validation"></div>
+  </div>
+<!-- JavaScript Start -->
+  <script> 
+    function validatePassword() {
+      var newPassword = document.getElementById("new-password").value; //Fetching value by ID = new-password previously set
+      var confirmPassword = document.getElementById("confirm-password").value;
+      var pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])(?=.{8,})/; //lowercase,uppercase,numeric,special charector,length
+      // (?=.*[Range]) => [ (?= ->LookAhead Start , .* -> Matches any Chrector between Range, [Range] -> Ex for lowercase [a-z],)-> LookAhead end
+
+      // If 2 Inputs newPassword and confirmPassword doesnot match
+      if (newPassword !== confirmPassword) {
+        document.getElementById("password-validation").innerHTML = "Error: Passwords do not match.";
+      }
+
+      // Checking the entered password follows the pattern requierment 
+      if (!pattern.test(newPassword)) {
+        document.getElementById("password-validation").innerHTML = "Error: Password does not meet requirements."; //Displaying an error message
+        document.getElementById("new-password").className = "invalid-password"; //Making 1st input border red color
+      }
+
+      // HTML documents implement the HTMLDocument interface
+      //Fetching value by ID = lowercase previously set in HTML body
+      // The querySelector() method returns the first element that matches a CSS selector.
+      const lowercaseIcon = document.getElementById('lowercase').querySelector('i');
+      const uppercaseIcon = document.getElementById('uppercase').querySelector('i');
+      const specialIcon = document.getElementById('special').querySelector('i');
+      const numericIcon = document.getElementById('numeric').querySelector('i');
+      const lengthIcon = document.getElementById('length').querySelector('i');
+
+      const hasLowercase = /[a-z]/.test(confirmPassword);
+      const hasUppercase = /[A-Z]/.test(confirmPassword);
+      const hasSpecial = /[!@#$%^&*()_+\-=[\]{}|;':",./<>?]/.test(confirmPassword);
+      const hasNumeric = /\d/.test(confirmPassword);
+      const hasMinLength = confirmPassword.length >= 8;
+
+      lowercaseIcon.textContent = hasLowercase ? 'check_circle' : 'cancel'; //-- GoogleAPI link for Material Icons,if lowerCase found Check-Circle and if not found Cancel --
+      lowercaseIcon.style.color = hasLowercase ? 'green' : 'red'; //if lowerCase found Check-Circle is made green and if not found Cancel is made red
+
+      uppercaseIcon.textContent = hasUppercase ? 'check_circle' : 'cancel';
+      uppercaseIcon.style.color = hasUppercase ? 'green' : 'red';
+
+      specialIcon.textContent = hasSpecial ? 'check_circle' : 'cancel';
+      specialIcon.style.color = hasSpecial ? 'green' : 'red';
+
+      numericIcon.textContent = hasNumeric ? 'check_circle' : 'cancel';
+      numericIcon.style.color = hasNumeric ? 'green' : 'red';
+
+      lengthIcon.textContent = hasMinLength ? 'check_circle' : 'cancel';
+      lengthIcon.style.color = hasMinLength ? 'green' : 'red';
+
+    }
+
+  </script> <!-- JavaScript end -->
+
+</body> <!-- HTML body Code Start -->
+
+</html>
